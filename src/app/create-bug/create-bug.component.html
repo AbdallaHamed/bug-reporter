@@ -1,0 +1,55 @@
+<section class="form-container">
+    <h1>Create new bug!</h1>
+    <form [formGroup]="bugForm" (submit)="submit(form)" class="p-2" #form="ngForm" novalidate>
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Enter bug title" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Enter bug details" rows="4"
+                required></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Severity</mat-label>
+            <mat-select formControlName="severity" required>
+                <mat-option *ngFor="let level of severities" [value]="level">{{level}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Release</mat-label>
+            <input matInput placeholder="Ex. v1.0.0" formControlName="release" required>
+        </mat-form-field>
+
+        <div class="links-container">
+            <mat-form-field>
+                <mat-label>Links</mat-label>
+                <input matInput placeholder="Enter related links here" formControlName="link"
+                    [required]="!bugForm.get('links').value?.length">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="button" (click)="addLink()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <ul class="links-list">
+            <li *ngFor="let link of bugForm.get('links').value; let i = index">
+                <div>
+                    <span>
+                        {{link}}
+                    </span>
+                    <button mat-icon-button type="button" (click)="deleteLink(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+        <button mat-raised-button color="accent" class="submit-btn" [disabled]="bugForm.invalid">
+            Submit
+        </button>
+    </form>
+</section>

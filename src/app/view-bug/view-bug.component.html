@@ -1,0 +1,22 @@
+<mat-drawer-container class="page-container">
+    <mat-drawer mode="side" opened>
+        <mat-nav-list>
+            <a class="list-item" mat-list-item *ngFor="let bug of bugsList.slice(0, page*pageSize)"
+                (click)="selectBug(bug.id)">
+                <span matListItemLine class="bug-id">Bug-{{bug.id}}</span>
+                <h5 matListItemTitle>{{ bug.title }}</h5>
+                <span matListItemLine class="bug-status" [ngClass]="statusColors[bug.status]">{{bug.status}}</span>
+            </a>
+        </mat-nav-list>
+        <button *ngIf="bugsList.length > page*pageSize" mat-raised-button color="primary" class="load-more-btn"
+            (click)="loadMore()"> Load more </button>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="drawer-content">
+            <div *ngIf="!isBugSelected" class="no-selection">
+                <h1>Select a bug to show here!</h1>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

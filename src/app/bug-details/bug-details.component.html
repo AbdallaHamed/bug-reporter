@@ -1,0 +1,26 @@
+<div *ngIf="!bugDetails" class="no-selection">
+    <h1>Not found!</h1>
+</div>
+<section *ngIf="bugDetails as bug" class="bug-details">
+    <div class="title-container">
+        <h2>{{bug.title}}</h2>
+        <button mat-raised-button color="accent" (click)="updateStatus(bug.id, getNextStatus(bug.status))">
+            <mat-icon>arrow_right</mat-icon>
+            {{ getNextStatus(bug.status) }}
+        </button>
+    </div>
+    <h3>Status</h3>
+    <p>{{bug.status}}</p>
+    <h3>Description</h3>
+    <p>{{bug.description}}</p>
+    <h3>Severity</h3>
+    <p>{{bug.severity}}</p>
+    <h3>Release</h3>
+    <p>{{bug.release}}</p>
+    <h3>Links</h3>
+    <ul>
+        <li *ngFor="let link of bug.links">
+            <a [href]="link" target="_blank"> {{link}} </a>
+        </li>
+    </ul>
+</section>

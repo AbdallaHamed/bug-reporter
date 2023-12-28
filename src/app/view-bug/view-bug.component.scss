@@ -1,0 +1,99 @@
+.page-container {
+    width: 100%;
+    height: 100%;
+
+    mat-drawer {
+        width: 320px;
+        background-color: #fafafa;
+
+        ::ng-deep .mat-drawer-inner-container {
+
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 5px lightgray;
+                border-radius: 10px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: lightgrey;
+                border-radius: 10px;
+            }
+        }
+
+        .load-more-btn {
+            width: 70%;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    mat-drawer-content {
+        background-color: #fff;
+
+        .drawer-content {
+            height: 100%;
+        }
+
+        .no-selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    }
+
+    .list-item {
+        height: initial;
+
+        ::ng-deep .mat-list-item-content {
+            flex-direction: column;
+            align-items: flex-start;
+            border-bottom: 1px solid lightgray;
+            padding: 4px 16px;
+
+            .bug-id {
+                background-color: lightgray;
+                border-radius: 6px;
+                padding: 0 6px;
+                margin-top: 4px;
+            }
+
+            h5 {
+                font-size: 16px;
+                margin-top: 8px;
+                margin-bottom: 0;
+                line-height: 1.3;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 280px;
+                text-wrap: nowrap;
+            }
+
+            .bug-status {
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.status-open {
+    color: yellowgreen;
+}
+
+.status-in-progress {
+    color: deepskyblue;
+}
+
+.status-ready {
+    color: orange;
+}
+
+.status-done {
+    color: lightslategray;
+}

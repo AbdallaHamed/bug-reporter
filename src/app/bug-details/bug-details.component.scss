@@ -1,0 +1,22 @@
+.no-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bug-details {
+    padding: 20px 10%;
+
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    h3 {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+}

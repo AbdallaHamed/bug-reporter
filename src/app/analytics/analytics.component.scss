@@ -1,0 +1,12 @@
+.dashboard-container {
+    padding: 32px;
+}
+
+.chart-container {
+    width: 60%;
+    margin: auto;
+
+    &:first-of-type {
+        margin-bottom: 40px;
+    }
+}
